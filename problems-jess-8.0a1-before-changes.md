@@ -1245,8 +1245,10 @@
 
 
 
+---
 
-### Related resources: 
+
+# Related resources
 
 1.  p42-jess-8.0/src/main/java/jess/ClassSource.java
 1.  p42-jess-8.0/src/main/java/jess/ClassSource.java
@@ -2492,7 +2494,7 @@
 
 
 
-## Informations
+# Informations
 
 1. Unlikely argument type for equals(): String seems to be unrelated to String[]
 1. Unlikely argument type for equals(): String seems to be unrelated to Value
@@ -2508,7 +2510,7 @@
 1. Unlikely argument type for equals(): String seems to be unrelated to Value
 1. Unlikely argument type for equals(): String seems to be unrelated to Value
 
-### Related resources:
+# Related resources:
 
 1. dpsframework-1.9/src/com/dpsframework/util/JadeConsole.java
 1. p42-jess-8.0/src/main/java/jess/ControlFunctions.java
