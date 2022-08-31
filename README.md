@@ -1,4 +1,4 @@
-# p42-jess-8.0
+# p70-jess-8.0
 
 ## Jess (Java Expert System Shell)
 
@@ -25,5 +25,5 @@ If all goes well, you will see output similar to the following. This output was 
 
 
 
-# p42-jess-8.0
+# p70-jess-8.0
 
