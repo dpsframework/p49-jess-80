@@ -5,5 +5,5 @@ Specification-Version: 8.0b1
 SVN-Date: 31-08-2022
 SVN-Author: Sandia Corporation 
 SVN-Source: https://www.sandia.gov/
-Proposal-name: P42-JESS-8.0 
+Proposal-name: P49-JESS-8.0 
 Proposal-repo:  GitHub <https://github.com/dpsframework/p42-jess-8.0>
