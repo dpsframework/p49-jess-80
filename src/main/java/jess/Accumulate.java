@@ -9,6 +9,7 @@ import java.util.*;
  * (C) 2007 Sandia National Laboratories<br>
  */
 
+@SuppressWarnings("serial")
 public class Accumulate implements ConditionalElement, ConditionalElementX, Visitable {
     private Group m_group;
     private Value m_body;

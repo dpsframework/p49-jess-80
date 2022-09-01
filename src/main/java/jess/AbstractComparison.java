@@ -21,7 +21,7 @@ abstract class AbstractComparison implements Userfunction, Serializable {
             for (int i=index+1; i<vv.size(); ++i) {
                 if (!(v1.javaObjectValue(null) instanceof Comparable))
                     throw new JessException(vv.get(0).symbolValue(context), "Not a Comparable:", v1.toString());
-                Comparable c = (Comparable) v1.javaObjectValue(null);
+                Comparable<?> c = (Comparable<?>) v1.javaObjectValue(null);
                 Value v2 = vv.get(++index).resolveValue(context);
                 try {
                     if (!computeComparable(c, v2.javaObjectValue(null)))
@@ -42,7 +42,7 @@ abstract class AbstractComparison implements Userfunction, Serializable {
         return v2;
     }
 
-    protected abstract boolean computeComparable(Comparable v1, Object v2) throws JessException;
+    protected abstract boolean computeComparable(Comparable<?> v1, Object v2) throws JessException;
 
     protected abstract boolean computeNumeric(Value v1, Value v2) throws JessException;
 }
