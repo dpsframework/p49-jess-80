@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="javadoc">
+    <target name="javadoc">
+        <javadoc access="public" author="true" classpath="target/test-classes;lib/jsr94.jar" destdir="doc" doctitle="Jess (c) the Rule Engine for the Java Platform" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" packagenames="jess.server,jess.swing,jess.jsr94,jess,jess.awt,jess.tools,jess.xml,jess.factory" source="1.8" sourcepath="src/main/java;src/main/resources;src/test/java;src/test/resources" splitindex="true" use="true" version="true">
+            <link href="file:/C:/Program%20Files%20(x86)/java/java-se-8u41-ri/lib/"/>
+        </javadoc>
+    </target>
+</project>
