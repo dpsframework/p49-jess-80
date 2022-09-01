@@ -14,6 +14,7 @@ import java.io.Serializable;
  * @see JessListener
  */
 
+@SuppressWarnings("serial")
 public class Activation implements Serializable {
 
    /**

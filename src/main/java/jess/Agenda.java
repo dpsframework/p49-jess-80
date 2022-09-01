@@ -10,15 +10,16 @@ import java.util.*;
  * (C) 2007 Sandia National Laboratories<br>
  */
 
+@SuppressWarnings("serial")
 class Agenda implements Serializable {
 
     /** @noinspection RedundantStringConstructorCall*/
     private final Object m_activationSemaphore = new String("ACTIVATION LOCK");
     private volatile boolean m_halt = false;
     private int m_evalSalience = Rete.INSTALL;
-    private HashMap m_moduleAgendas = new HashMap();
+    private HashMap<String, ModuleAgenda> m_moduleAgendas = new HashMap<String, ModuleAgenda>();
     private Strategy m_strategy = new depth();
-    private final Stack m_focusStack = new Stack();
+    private final Stack<String> m_focusStack = new Stack<String>();
     private volatile Activation m_thisActivation;
     private volatile Thread m_runThread;
 
@@ -34,7 +35,7 @@ class Agenda implements Serializable {
     }
 
     void reset(Rete engine) throws JessException {
-        for (Iterator modules = m_moduleAgendas.values().iterator(); modules.hasNext();) {
+        for (Iterator<ModuleAgenda> modules = m_moduleAgendas.values().iterator(); modules.hasNext();) {
             ModuleAgenda module = (ModuleAgenda) modules.next();
             module.reset();
         }
@@ -124,16 +125,16 @@ class Agenda implements Serializable {
     }
 
 
-    Iterator listActivationsInCurrentModule(Rete engine) throws JessException {
+    Iterator<?> listActivationsInCurrentModule(Rete engine) throws JessException {
         return getQueue(engine, engine.getCurrentModule()).iterator(engine);
     }
 
-    Iterator listActivations(Rete engine, String moduleName) throws JessException {
+    Iterator<?> listActivations(Rete engine, String moduleName) throws JessException {
         return getQueue(engine, moduleName).iterator(engine);
     }
 
-    private HashSet m_toAdd = new HashSet();
-    private HashSet m_toRemove = new HashSet();
+    private HashSet<Activation> m_toAdd = new HashSet<Activation>();
+    private HashSet<Activation> m_toRemove = new HashSet<Activation>();
 
     void addActivation(Activation a) {
         synchronized (m_activationSemaphore) {
@@ -157,13 +158,13 @@ class Agenda implements Serializable {
                 return;
 
             try {
-                for (Iterator it = m_toRemove.iterator(); it.hasNext();) {
+                for (Iterator<Activation> it = m_toRemove.iterator(); it.hasNext();) {
                     Activation a = (Activation) it.next();
                     if (a.getIndex() > -1)
                         getQueue(engine, a.getModule()).remove(a);
                 }
 
-                for (Iterator it = m_toAdd.iterator(); it.hasNext();) {
+                for (Iterator<Activation> it = m_toAdd.iterator(); it.hasNext();) {
                     Activation a = (Activation) it.next();
 
                     if (m_evalSalience != Rete.INSTALL)
@@ -282,7 +283,7 @@ class Agenda implements Serializable {
         return n;
     }
 
-    Iterator listFocusStack() {
+    Iterator<String> listFocusStack() {
         return m_focusStack.iterator();
     }
 

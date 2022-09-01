@@ -12,6 +12,7 @@ import java.util.Set;
 
 import jess.ClassResearcher.Property;
 
+@SuppressWarnings("serial")
 public class AndroidClassResearcher implements ClassResearcher, Serializable {
 
 	private Rete m_engine;
